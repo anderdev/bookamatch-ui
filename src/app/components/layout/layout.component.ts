@@ -18,6 +18,7 @@ export class LayoutComponent implements OnDestroy {
   public isShowSidebar: boolean;
   public mobileQuery: MediaQueryList;
   private mobileQueryListener: () => void;
+  isLoggedIn = false;
 
   constructor(
     private changeDetectorRef: ChangeDetectorRef,

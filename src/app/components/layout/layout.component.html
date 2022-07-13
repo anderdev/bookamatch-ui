@@ -16,15 +16,14 @@
     (themeOnGreen)="changeThemeOnGreen()"
   ></app-settings-menu-app>
 
-  <mat-sidenav-container class="layout">
+  <mat-sidenav-container class="layout" *ngIf="isLoggedIn">
     <mat-sidenav
       #sidenav
       mode="side"
       [(opened)]="isShowSidebar"
       class="layout-sidebar"
       [mode]="mobileQuery.matches ? 'over' : 'side'"
-      [fixedInViewport]="mobileQuery.matches"
-    >
+      [fixedInViewport]="mobileQuery.matches">
       <app-sidebar></app-sidebar>
     </mat-sidenav>
 
@@ -34,4 +33,9 @@
       <app-footer></app-footer>
     </mat-sidenav-content>
   </mat-sidenav-container>
+
+  <div class="" *ngIf="!isLoggedIn">
+    <router-outlet></router-outlet>
+    <app-footer></app-footer>
+  </div>
 </div>
